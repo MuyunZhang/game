@@ -36,6 +36,7 @@ public class GraphicsPanel extends JPanel implements KeyListener, MouseListener 
         super.paintComponent(g);  // just do this
         g.drawImage(background, 0, 0, null);  // the order that things get "painted" matter; we put background down first
         g.drawImage(player.getPlayerImage(), player.getxCoord(), player.getyCoord(), null);
+        g.drawImage(player2.getPlayerImage(), player2.getxCoord(), player2.getyCoord(), null);
 
         // this loop does two things:  it draws each Coin that gets placed with mouse clicks,
         // and it also checks if the player has "intersected" (collided with) the Coin, and if so,
