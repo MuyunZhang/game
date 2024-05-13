@@ -13,6 +13,7 @@ public class Player {
     private double yCoord;
     private int score;
 
+
     public Player(String leftImg, String rightImg) {
         facingRight = true;
         xCoord = 50; // starting position is (50, 435), right on top of ground

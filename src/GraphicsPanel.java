@@ -10,6 +10,8 @@ import java.util.ArrayList;
 public class GraphicsPanel extends JPanel implements KeyListener, MouseListener {
     private BufferedImage background;
     private Player player;
+
+    private Player player2;
     private boolean[] pressedKeys;
     private ArrayList<Coin> coins;
 
@@ -20,7 +22,7 @@ public class GraphicsPanel extends JPanel implements KeyListener, MouseListener 
             System.out.println(e.getMessage());
         }
         player = new Player("src/marioleft.png", "src/marioright.png");
-        player = new Player("src/luigileft.png","src/luigiright.png");
+        player2 = new Player("src/luigileft.png","src/luigiright.png");
         coins = new ArrayList<>();
         pressedKeys = new boolean[128]; // 128 keys on keyboard, max keycode is 127
         addKeyListener(this);
@@ -72,6 +74,21 @@ public class GraphicsPanel extends JPanel implements KeyListener, MouseListener 
         // player moves down (S)
         if (pressedKeys[83]) {
             player.moveDown();
+        }
+
+        if (pressedKeys[37]){
+            player2.faceLeft();
+            player2.moveLeft();
+        }
+        if(pressedKeys[38]){
+            player2.moveUp();
+        }
+        if(pressedKeys[39]){
+            player2.faceRight();
+            player2.moveRight();
+        }
+        if(pressedKeys[40]){
+            player2.moveDown();
         }
     }
 
