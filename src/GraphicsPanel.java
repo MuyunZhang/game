@@ -49,11 +49,17 @@ public class GraphicsPanel extends JPanel implements KeyListener, MouseListener 
                 coins.remove(i);
                 i--;
             }
+            if (player2.playerRect().intersects(coin.coinRect())) { // check for collision
+                player2.collectCoin();
+                coins.remove(i);
+                i--;
+            }
         }
 
         // draw score
         g.setFont(new Font("Courier New", Font.BOLD, 24));
-        g.drawString("Score: " + player.getScore(), 20, 40);
+        g.drawString("Mario's " + "Score: " + player.getScore(), 20, 40);
+        g.drawString("Luigi's " + "Score: " + player2.getScore(), 20, 80);
 
         // player moves left (A)
         if (pressedKeys[65]) {
